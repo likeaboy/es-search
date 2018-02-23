@@ -252,7 +252,7 @@ public class AlarmController {
 	public static void main(String[] args) {
 		// System.out.println(stringToUnicode("360告警处置中心测试短信!"));
 		Map<String, Object> params = new HashMap<String, Object>();
-		params.put("phone", "1862783728");
+		params.put("phone", "1862783733");
 		params.put("content", "360告警处置中心测试短信!");
 		params.put("bps", "115200");
 		AlarmResponse rep =  AlarmController.getInstance().directCallPython(params);

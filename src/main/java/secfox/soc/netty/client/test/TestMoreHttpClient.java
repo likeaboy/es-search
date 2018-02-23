@@ -18,7 +18,6 @@ import com.alibaba.fastjson.JSON;
 
 import secfox.soc.es.search.response.ESQueryResponse;
 import secfox.soc.netty.HttpSearchMethod;
-import secfox.soc.netty.client.SIMEventObject;
 
 /**
  * 本机测试类
@@ -31,57 +30,11 @@ public class TestMoreHttpClient {
      */
     public static void main(String[] args) {
         HttpClient client = new DefaultHttpClient();
-       /* HttpPost post = new HttpPost(
-                "http:// 10.95.32.29:8090/" + HttpSearchMethod.SIMQUERY);*/
         HttpPost post = new HttpPost(
-                "http://10.95.32.23:8090/" + HttpSearchMethod.SIMQUERY);
-       /* HttpPost post = new HttpPost(
-                "http://10.74.12.121:8090/" + HttpSearchMethod.SIMQUERY);*/
+                "http://127.0.0.1:8090/" + HttpSearchMethod.SIMQUERY);
 
         try {
         	long start = System.currentTimeMillis();
-        	
-        	/*public static final String KEY_DEVADDR="devAddr";
-        	public static final String KEY_SADDR="sAddr";
-        	public static final String KEY_SPORT="sPort";
-        	public static final String KEY_DADDR="dAddr";
-        	public static final String KEY_DPORT="dPort";
-        	public static final String KEY_ID="id";
-        	public static final String KEY_SYSTYPE="sysType";
-        	public static final String KEY_PRIORITY="priority";
-        	public static final String KEY_DEVTYPE="devType";
-        	public static final String KEY_ACTION="action";
-        	public static final String KEY_RESULT="result";
-        	
-        	public static final String KEY_SUSERNAME="sUserName";
-        	public static final String KEY_STADDR="stAddr";
-        	public static final String KEY_STPORT="stPort";
-        	public static final String KEY_DTADDR="dtAddr";
-        	public static final String KEY_DTPORT="dtPort";*/
-        	
-        	
-//    		condMap.put(ConditionParser.KEY_DEVADDR, "~10.33.232.2");
-//    		condMap.put(ConditionParser.KEY_SADDR, "~10.181.117.201");
-//    		condMap.put(ConditionParser.KEY_SPORT, "3844");
-//    		condMap.put(ConditionParser.KEY_DADDR, "10.22.35.17");
-//    		condMap.put(ConditionParser.KEY_DPORT, "56412");
-    		//151063200002621
-//    		condMap.put(ConditionParser.KEY_ID, "151063200002621");
-//    		condMap.put(ConditionParser.KEY_SYSTYPE, "3");
-//    		condMap.put(ConditionParser.KEY_PRIORITY, "2,3");
-//    		condMap.put(ConditionParser.KEY_DEVTYPE, "100");
-        	
-        	
-        	/*public static final String KEY_SADDR="sAddr";
-        	public static final String KEY_SPORT="sPort";
-        	public static final String KEY_DADDR="dAddr";
-        	public static final String KEY_DPORT="dPort";
-        	public static final String KEY_ID="id";
-        	public static final String KEY_SYSTYPE="sysType";
-        	public static final String KEY_PRIORITY="priority";
-        	public static final String KEY_DEVTYPE="devType";
-        	public static final String KEY_ACTION="action";
-        	public static final String KEY_RESULT="result";*/
         	
             List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(16);
             nameValuePairs.add(new BasicNameValuePair("startTime", "1511118660000"));
@@ -91,7 +44,7 @@ public class TestMoreHttpClient {
             nameValuePairs
                     .add(new BasicNameValuePair("endTime", "1511229600000"));*/
             
-            nameValuePairs.add(new BasicNameValuePair("devAddr", "~10.33.232.2"));
+            nameValuePairs.add(new BasicNameValuePair("devAddr", "~127.0.0.1"));
             
             nameValuePairs.add(new BasicNameValuePair("hitIndex", "skyeye-las_event-2017.11.20"));
             nameValuePairs.add(new BasicNameValuePair("hitSlotKey", "slot_1511132400000"));
@@ -114,8 +67,8 @@ public class TestMoreHttpClient {
             System.out.println(esqResp.toString());
            
 //            System.out.println(esqResp.getData());
-            List<SIMEventObject> evtList = JSON.parseArray("["+esqResp.getData()+"]", SIMEventObject.class);
-            System.out.println(evtList.size());
+           /* List<SIMEventObject> evtList = JSON.parseArray("["+esqResp.getData()+"]", SIMEventObject.class);
+            System.out.println(evtList.size());*/
             System.out.println(System.currentTimeMillis()-start+"ms");
             rd.close();
         } catch (IOException e) {

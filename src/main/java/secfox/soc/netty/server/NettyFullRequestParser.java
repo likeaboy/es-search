@@ -30,7 +30,7 @@ public class NettyFullRequestParser {
     
     public static void main(String[] args) {
     	
-    		Map<String,Object> parmMap = test("https://10.95.32.23?phone=phoneNumber&port=123&bps=haha&content=%E5%91%8A%E8%AD%A6%E6%A0%87%E9%A2%98%EF%BC%9A%3B%E6%BA%90IP%E5%9C%B0%E5%9D%80%EF%BC%9A%3Btest");
+    		Map<String,Object> parmMap = test("https://127.0.0.1?phone=phoneNumber&port=123&bps=haha&content=%E5%91%8A%E8%AD%A6%E6%A0%87%E9%A2%98%EF%BC%9A%3B%E6%BA%90IP%E5%9C%B0%E5%9D%80%EF%BC%9A%3Btest");
 //    	Map<String,Object> parmMap = test("/alarm?phone=18519664027\\;port=/dev/ttyUSB0\\;bps=115200&content=%E5%91%8A%E8%AD%A6%E6%A0%87%E9%A2%98%EF%BC%9A;%E6%BA%90IP%E5%9C%B0%E5%9D%80%EF%BC%9A;test");
 	}
     

@@ -19,7 +19,6 @@ import com.alibaba.fastjson.JSON;
 import secfox.soc.es.search.request.ESQueryRequestParam;
 import secfox.soc.es.search.response.ESQueryResponse;
 import secfox.soc.netty.HttpSearchMethod;
-import secfox.soc.netty.client.SIMEventObject;
 
 /**
  * 本机测试类
@@ -32,15 +31,9 @@ public class TestESConfigClient {
      */
     public static void main(String[] args) {
         HttpClient client = new DefaultHttpClient();
-        /*HttpPost post = new HttpPost(
-                "http://10.95.32.29:8090" + HttpSearchMethod.SIMQUERY);*/
-        /*HttpPost post = new HttpPost(
-                "http://10.95.32.23:8090/" + HttpSearchMethod.SIMQUERY);*/
-        /*HttpPost post = new HttpPost(
-                "http://10.74.12.121:8090/" + HttpSearchMethod.SIMQUERY);*/
         
         HttpPost post = new HttpPost(
-        "http://10.95.32.29:8090" + HttpSearchMethod.ES_MODIFY);
+        "http://127.0.0.1:8090" + HttpSearchMethod.ES_MODIFY);
 
         try {
         	long start = System.currentTimeMillis();
@@ -52,7 +45,7 @@ public class TestESConfigClient {
             nameValuePairs.add(new BasicNameValuePair("delLogFactor", "84"));
             nameValuePairs.add(new BasicNameValuePair("alarmLogFactor", "95"));
             
-            nameValuePairs.add(new BasicNameValuePair("esIp", "10.95.32.29"));
+            nameValuePairs.add(new BasicNameValuePair("esIp", "127.0.0.1"));
             
 
             post.setEntity(new UrlEncodedFormEntity(nameValuePairs));	
@@ -66,8 +59,8 @@ public class TestESConfigClient {
             System.out.println(esqResp.toString());
            
             System.out.println(esqResp.getData());
-            List<SIMEventObject> evtList = JSON.parseArray("["+esqResp.getData()+"]", SIMEventObject.class);
-            System.out.println(evtList.size());
+           /* List<SIMEventObject> evtList = JSON.parseArray("["+esqResp.getData()+"]", SIMEventObject.class);*/
+           /* System.out.println(evtList.size());*/
             System.out.println(System.currentTimeMillis()-start+"ms");
             rd.close();
         } catch (IOException e) {
